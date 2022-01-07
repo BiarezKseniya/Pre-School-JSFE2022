@@ -1,0 +1,27 @@
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .header_container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .nav {
+    margin-left: auto;
+  }
+   
+  .nav-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+  }
+
+  .nav-link {
+    padding: 0 30px;
+    line-height: 50px;
+  }
