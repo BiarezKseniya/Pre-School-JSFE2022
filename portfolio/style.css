@@ -5,19 +5,19 @@
   --hover_color: #BDAE82;
 }
 
-
-
 .container {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
     position: relative;    
   }
 
   body {
     margin: 0;
+    padding: 0;
     font: var(--font2);
     color: var(--font_color);
+    background-color: black;
   }
 
   section {
@@ -81,7 +81,7 @@
     left:0;
     right:0;
     top:0;
-    height: 910px;
+    height: 660px;
   }
 
   h1 {
@@ -92,11 +92,13 @@
     line-height: 120px;
   }
 
-  .main_container p {
+  .about {
     display: display-block;
     width: 470px;
     height: 120px;
     line-height: 40px;
+    padding: 10px 0 25px;
+    margin: 0;
   }
 
   .gold_button {
@@ -106,4 +108,165 @@
     font: inherit;
     width: 220px;
     height: 55px;
+    transition: 0.3s;
   }
+
+  .gold_button:hover {
+    color: var(--font_color);
+  }
+
+  .section-title {
+    height: 80px;
+    font: var(--font1);
+    color: var(--hover_color);
+    font-size: 40px;
+    text-align: center;
+    line-height: 80px;
+    background-color: black;  
+    margin: 0 auto;
+  }
+
+  .h2-style {
+    width: 50%;
+    background-image: linear-gradient(to top, #000 39px, #bdae82 39px, #bdae82 41px, #000 41px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #skills .section-title{
+    width: 152px;
+  }
+
+  #portfolio .section-title{
+    width: 220px;
+  }
+
+  #video .section-title{
+    width: 154px;
+  }
+
+  #price .section-title{
+    width: 142px;
+  }
+
+  .section {
+    padding: 100px 20px 0;
+  }
+
+  .skills_items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-top: 60px;
+  }
+
+  .skill_item:nth-child(1) {
+    background-image: url('./assets/svg/camera 1.svg');
+    background-size: 62px 50px;
+    background-repeat: no-repeat;
+  }
+
+  .skill_item:nth-child(2) {
+    background-image: url('./assets/svg/video 1.svg');
+    background-size: 62px 50px;
+    background-repeat: no-repeat;
+  }
+
+  .skill_item:nth-child(3) {
+    background-image: url('./assets/svg/image 1.svg');
+    background-size: 62px 50px;
+    background-repeat: no-repeat;
+  }
+
+  .skill_item:nth-child(4) {
+    background-image: url('./assets/svg/mic 1.svg');
+    background-size: 62px 50px;
+    background-repeat: no-repeat;
+  }
+  .skill_item {
+    background-position: center top;
+    width: 320px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .item_name {
+    padding-top: 90px;
+    padding-bottom: 20px;
+    height: 40px;
+    font-weight: bold;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 40px;
+  }
+
+  .item_content {
+    height: 72px;
+    font-size: 18px;
+    line-height: 36px;
+    margin: 0;
+  }
+
+  .season_buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 60px;
+  }
+
+  .transparent_button {
+    border: 1px solid var(--hover_color);
+    background-color: transparent;
+    cursor: pointer;
+    font: inherit;
+    color: var(--hover_color);
+    width: 220px;
+    height: 55px;
+    transition: 0.3s;
+  }
+
+  .transparent_button:hover {
+    color: var(--font_color);
+  }
+
+  .portfolio_items {
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      flex-wrap: wrap;
+  }
+
+  .video-player {
+    padding-top: 60px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .play {
+    background-image: url('./assets/svg/Play_hover.svg');
+    border: 0;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;  
+    transition: 0.3s;
+    position: absolute;
+    height: 130px;
+    width: 130px;
+  }
+  
+  .play:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+      contrast(87%);
+  }
+
+  .play:focus{
+    outline: none;
+  }
+
+
+
+
+
