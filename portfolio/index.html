@@ -102,18 +102,87 @@
             Price
             </h2>
         </div>
+        <div class="pricelist">
+            <div class="price_item">
+                <p class="price_name">Standard</p>
+                <p class="price">500 $</p>
+                <p class="price_desc">
+                    <span class="price_desc_item">One location</span>
+                    <span class="price_desc_item">120 photos in color</span>
+                    <span class="price_desc_item">12 photos in retouch</span>
+                    <span class="price_desc_item">Readiness 2-3 weeks</span>
+                    <span class="price_desc_item">Make up, visage</span>
+                </p>
+                <button class="gold_button">Order shooting</button>
+            </div>
+            <div class="price_item">
+                <p class="price_name">Premium</p>
+                <p class="price">700 $</p>
+                <p class="price_desc">
+                    <span class="price_desc_item">One or two locations</span>
+                    <span class="price_desc_item">200 photos in color</span>
+                    <span class="price_desc_item">20 photos in retouch</span>
+                    <span class="price_desc_item">Readiness 1-2 weeks</span>
+                    <span class="price_desc_item">Make up, visage</span>
+                </p>
+                <button class="gold_button">Order shooting</button>
+            </div>
+            <div class="price_item">
+                <p class="price_name">Gold</p>
+                <p class="price">1000 $</p>
+                <p class="price_desc">
+                    <span class="price_desc_item">Three locations or more</span>
+                    <span class="price_desc_item">300 photos in color</span>
+                    <span class="price_desc_item">50 photos in retouch</span>
+                    <span class="price_desc_item">Readiness 1 week</span>
+                    <span class="price_desc_item">Make up, visage, hairstyle</span>
+                </p>
+                <button class="gold_button">Order shooting</button>
+            </div>
+        </div>
         </section>
         <section id="contacts" class="section">
-        <div class="h2-style">
-            <h2 class="section-title">
+        <div class="contacts_container">
+            <h2 class="contacts_title">
             Contact me
             </h2>
+            <form class="contact_form" action="/my-handling-form-page" method="post">
+                    <input type="e-mail" id="mail" class="contacts_item" name="user_mail" placeholder="E-mail"> 
+                    <input type="phone" id="phone" class="contacts_item" name="user_phone" placeholder="Phone">
+                    <textarea id="msg" name="user_message" class="contacts_item" placeholder="Message"></textarea>
+                    <button class="gold_button">Send message</button>
+            </form>
         </div>
         </section>
     </div>
 </main>  
 <footer>
-    <div class="footer_container"></div>
+    <div class="footer_container">
+        <p class="ref">
+            <span>&#169;</span>
+            <span>2022</span> 
+            <span><a href="https://github.com/BiarezKseniya">github</a></span>
+        </p>
+        <p class="rss-link">
+            <a href="https://rs.school/js-stage0/">
+            Rolling Scopes School
+            </a>
+        </p> 
+        <ul class="social-list">
+            <li> 
+                <a href="https://www.instagram.com/"><img class="social-list_item" src="./assets/svg/Vector.svg" alt="instagram"></a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/"><img class="social-list_item" src="./assets/svg/fb 1.svg" alt="fb"></a>
+            </li>  
+            <li>
+                <a href="https://twitter.com/?lang=ru"><img class="social-list_item" src="./assets/svg/tw 1.svg" alt="twitter"></a>
+            </li>  
+            <li>
+                <a href="https://www.pinterest.com/" class="social-list_item"><img class="social-list_item" src="./assets/svg/pinterest 1.svg" alt="pinterest"></a>
+            </li>      
+        </ul>   
+    </div>
 </footer>
 </div>
 <script src="index.js"></script>    

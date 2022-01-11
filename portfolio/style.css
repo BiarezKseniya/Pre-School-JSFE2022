@@ -5,6 +5,16 @@
   --hover_color: #BDAE82;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .container {
     max-width: 1440px;
     margin: 0 auto;
@@ -60,9 +70,6 @@
   }
 
   .logo {
-    background-image: url('./assets/svg/logo.svg');
-    background-size: contain;
-    background-repeat: no-repeat;  
     transition: 0.3s;
   }
   
@@ -147,6 +154,11 @@
 
   #price .section-title{
     width: 142px;
+  }
+
+  #contacts .section-title{
+    width: 450px;
+    text-align: left;
   }
 
   .section {
@@ -271,4 +283,167 @@
 
   .play:focus{
     outline: none;
+  }
+
+  .pricelist {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 100px;
+  }
+
+  .price_desc_item {
+    display: block;
+    font: var(--font2);
+    font-size: 18px;
+    height: 36px;
+    line-height: 36px;
+    top: 0;
+    bottom: 0;
+  }
+
+  .price_item {
+    width: 444px;
+    border: 3px solid var(--hover_color);
+    padding: 43px 0;
+  }
+
+  .price_name {
+    font: var(--font1);
+    font-size: 28px;
+    margin: 0;
+    line-height: 2;
+  }
+
+  .price {
+    font: var(--font1);
+    font-size: 24px;
+    color: var(--hover_color);
+    padding: 20px 0;
+    margin: 0;
+    line-height: 2;
+  }
+
+  .price_desc{
+    margin: 0;
+    padding-bottom: 40px;
+  }
+
+  #contacts {
+    background-image: url('./assets/img/contacts.jpg');
+    background-repeat: no-repeat;
+    height: 700px;
+    padding-top: 0px;
+  }
+  
+  #mail {
+    height: 50px;
+  }
+  
+  #phone {
+    margin: 20px 0;
+    height: 50px;
+  }
+
+  #msg {
+    height: 100px;
+    margin-bottom: 30px;
+    color: var(--hover_color);
+    font: var(--font2);
+    line-height: 40px;
+    resize: none;
+  }
+
+  .contacts_title{
+    height: 80px;
+    font: var(--font1);
+    color: var(--hover_color);
+    font-size: 40px;
+    line-height: 80px;
+    margin: 0;  
+    padding-bottom:40px;
+  
+  }
+
+  .contacts_item {
+    background-color: transparent;
+    border: 2px solid var(--hover_color);
+    color: var(--hover_color);
+    font: var(--font2);
+    padding-left: 20px;
+  }
+
+  .contacts_item::placeholder {
+    color: var(--hover_color);
+    font: var(--font2);
+    line-height: 40px;
+  }
+
+  .contacts_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 450px;
+    margin-left: auto;
+    padding-top: 60px;
+  }
+  
+  .contact_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 450px;
+    margin-left: auto;
+  }
+  
+  .footer_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; 
+    height: 150px; 
+  }
+  
+  .social-list {
+    display: flex;
+    width: 188px;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin:0;
+    padding:0;
+  }
+
+  .rss-link {
+    width: 211px;
+  }
+
+  .ref {
+    width: 182px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  footer a {
+    color: var(--font_color);
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  footer a:hover {
+    color: var(--hover_color);
+  }
+
+  .social-list_item {
+    transition: 0.3s;
+  }
+  
+  .social-list_item:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+      contrast(87%);
   }
