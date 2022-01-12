@@ -78,6 +78,13 @@ body {
       contrast(87%);
   }
   
+  .lang_switch{
+    font-weight: bold;
+  }
+
+  .eng {
+    color: var(--hover_color);
+  }
 
   .section_hero {
     background-image: url('./assets/img/bg.jpg');
@@ -120,6 +127,10 @@ body {
 
   .gold_button:hover {
     color: var(--font_color);
+  }
+
+  .gold_button:focus {
+    outline: none;
   }
 
   .section-title {
@@ -225,6 +236,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     padding: 60px;
+    gap: 5px;
   }
 
   .transparent_button {
@@ -240,6 +252,12 @@ body {
 
   .transparent_button:hover {
     color: var(--font_color);
+  }
+
+  .transparent_button:focus {
+    color: black;
+    background-color: var(--hover_color);
+    outline: none;
   }
 
   .portfolio_items {
@@ -374,6 +392,7 @@ body {
     color: var(--hover_color);
     font: var(--font2);
     padding-left: 20px;
+    background: rgba(0, 0, 0, 0.5);
   }
 
   .contacts_item::placeholder {
