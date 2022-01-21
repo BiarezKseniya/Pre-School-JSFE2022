@@ -1,3 +1,20 @@
+const menu = document.querySelector('.menu');
+const nav = document.querySelector('.nav');
+
+function toggleNav() {
+  nav.classList.toggle('open');
+  menu.classList.toggle('open');
+}
+
+function closeNav(event) {
+  if (event.target.classList.contains('nav-link')) {  
+    nav.classList.remove('open');
+    menu.classList.remove('open');
+  }
+}
+menu.addEventListener('click', toggleNav);
+nav.addEventListener('click', closeNav);
+
     console.log( 
     'Самооценка\n',   
     '[1] Верстка валидная +10\n',
