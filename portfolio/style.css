@@ -544,14 +544,7 @@ body {
 
     .nav.open {
       flex-direction: column;
-      background-color: var(--back_color);
-      z-index: 10;
-      align-items: flex-start;
-      position: absolute;
       right: 0;
-      top:0;
-      width: 620px;
-      height: 200vh;
       box-shadow: 0 0 0 9999px rgba(0,0,0, 0.5);
     }
 
@@ -596,11 +589,19 @@ body {
     }
 
     .nav {
+      flex-direction: column;
+      background-color: var(--back_color);
+      z-index: 10;
+      align-items: flex-start;
+      position: absolute;
+      top:0;
+      width: 620px;
+      height: 200vh;
       margin: 0;
       padding: 0;
       position: absolute;
       right: -620px;
-      transition: 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out; 
     }
 
     .lang_switch {
