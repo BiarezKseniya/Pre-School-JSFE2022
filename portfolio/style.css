@@ -190,10 +190,11 @@ body {
 
   .skills_items {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     text-align: center;
     padding-top: 60px;
+    gap: 40px; 
   }
 
   .skill_item:nth-child(1) {
@@ -273,7 +274,7 @@ body {
 
   .portfolio_items {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       gap: 25px;
       flex-wrap: wrap;
   }
@@ -318,7 +319,7 @@ body {
 
   .pricelist {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 25px;
     flex-wrap: wrap;
     text-align: center;
@@ -498,7 +499,7 @@ body {
       contrast(87%);
   }
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     :root { 
       --font1: 700 32px 'Merriweather', serif;
       --font2: 400 20px 'Inter', sans-serif;
@@ -572,10 +573,12 @@ body {
     
     .menu.open .line:nth-child(1){
       transform: rotate(-45deg) translate(-10px, 7px);
+      height: 2px;
     }
     
     .menu.open .line:nth-child(3){
       transform: rotate(45deg) translate(-10px, -7px);
+      height: 2px;
     }
   
 
@@ -631,7 +634,8 @@ body {
     }
 
     .skills_items {
-      padding: 40px 20px 0;      
+      padding: 40px 20px 0;
+      gap: unset;      
     }
 
     .skill_item {
