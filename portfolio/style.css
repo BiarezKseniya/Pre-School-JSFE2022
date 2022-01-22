@@ -287,6 +287,7 @@ body {
   #video {
     height: 845px;
   }
+  
   .video {
     width: 100%;
   }
@@ -468,7 +469,7 @@ body {
     width: 211px;
     text-align: left;
     margin: 0;
-    padding-left: 4px;
+
   }
 
   .ref {
@@ -512,15 +513,19 @@ body {
       padding: 0 60px;
     }
 
+    .lang_switch {
+      width: 82px;
+    }
+
     .menu {
       display: flex;
       flex-direction: column;
       gap: 9px;
-      padding: 11px 20px;
+      padding: 11px 4px 11px 20px;
       order: 2;
     }
 
-    .menu .line{
+    .line {
       width: 50px;
       height: calc(10px/3);
       background-color: var(--font_color);
@@ -528,13 +533,13 @@ body {
       margin: 0 auto;
       transition: all 0.3s ease-in-out;
     }
+
+    .menu:hover .line {
+      background-color: var(--hover_color);
+    }
     
     .menu:hover {
       cursor: pointer;
-    }
-
-    .line {
-    transition: all 0.3s ease-in-out;
     }
 
     .nav.open {
@@ -546,7 +551,7 @@ body {
       right: 0;
       top:0;
       width: 620px;
-      height: 1024px;
+      height: 100vh;
       box-shadow: 0 0 0 9999px rgba(0,0,0, 0.5);
     }
 
@@ -629,12 +634,28 @@ body {
       font-size: 32px;
     }
 
+    #skills .section-title{
+      width: 131px;
+    }
+  
+    #portfolio .section-title{
+      width: 185px;
+    }
+  
+    #video .section-title{
+      width: 131px;
+    }
+  
+    #price .section-title{
+      width: 122px;
+    }
+
     .section {
       padding-top: 80px;
     }
 
     .skills_items {
-      padding: 40px 20px 0;
+      padding: 45px 20px 4px;
       gap: unset;      
     }
 
@@ -650,6 +671,16 @@ body {
       padding-top: 60px;
     }
 
+    .item_content {
+      height: 44px;
+      line-height: 22px;
+      width: 280px;
+      padding: 0 10px;
+    }
+
+    .season_buttons {
+      padding-top: 50px;
+    }
     
     .portfolio_items {
       flex-direction: column;
@@ -672,6 +703,24 @@ body {
       height: 548px;    
     }
 
+    #video .h2-style {
+      width: calc(50% - 20px);
+    }
+
+    .video-player {
+      margin-top: 50px;
+    }
+
+    .video {
+      height: 418px;
+      width: auto;
+    }
+  
+    .play {     
+      height: 65px;
+      width: 65px;
+    }
+
     .contacts_container {
       align-items: center;
       margin: 0 auto;
@@ -690,7 +739,7 @@ body {
     #contacts {
       height: 600px;
       background-position: center;
-      background-size: auto 620px;
+      background-size: auto 600px;
     }
 
     .footer_container {
@@ -706,6 +755,8 @@ body {
 
     .ref {
       margin: 0;
+      width: 173px;
+      justify-content: space-evenly;
     }
 
   }
