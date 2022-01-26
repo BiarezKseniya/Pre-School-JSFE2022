@@ -89,13 +89,49 @@ body {
   }
   
   .lang_switch{
-    font-weight: bold;
     width: 70px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 9px;
   }
 
   .eng {
+    color: var(--hover_color);
+    width: 25px;
+    text-align: left;
+  }
+
+  .ru {
+    width: 22px;
+    text-align: right;
+  }
+
+  .lang_switch span{
+    display: block;
+  }
+
+  .lang_switch button {
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    font: var(--font2);
+    color: var(--font_color);
+    font-weight: 700;
+    align-items: center;
+    padding: 0;
+  }
+
+  .lang_switch button:focus {
+    outline: none;
+  }
+
+  .lang_switch button:hover {
+    cursor: pointer;
+    color: var(--hover_color);
+  }
+
+  .lang_switch .active { 
     color: var(--hover_color);
   }
 

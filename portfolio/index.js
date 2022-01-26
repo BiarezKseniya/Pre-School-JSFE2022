@@ -1,3 +1,5 @@
+import i18Obj from './translate.js';
+
 const menu = document.querySelector('.menu');
 const nav = document.querySelector('.nav');
 
@@ -45,14 +47,44 @@ const allPortfolioBtns = document.querySelectorAll('.portfolio_btn');
 
 function changeClassActive (event) {
   if(event.target.classList.contains('portfolio_btn')) {
-  allPortfolioBtns.forEach((element) => {
-  element.classList.remove('active');
-  });
-  event.target.classList.add('active');
- };
+    allPortfolioBtns.forEach((element) => {
+      element.classList.remove('active');
+    });
+    event.target.classList.add('active');
+  };
 };
 
 portfolioBtns.addEventListener('click', changeClassActive);
+
+function getTranslate(lang) {
+  const datasetElements = document.querySelectorAll('[data-i18]');  
+  datasetElements.forEach((element) => {
+    if (element.placeholder) {
+      element.placeholder = i18Obj[lang][element.getAttribute('data-i18')];
+      element.textContent = ''
+    } else {
+      element.textContent = i18Obj[lang][element.getAttribute('data-i18')];
+    }
+  });
+};
+
+
+document.querySelectorAll('.eng')[0].addEventListener('click', getTranslate.bind(this, 'en'));
+document.querySelectorAll('.ru')[0].addEventListener('click', getTranslate.bind(this, 'ru'));
+
+document.querySelectorAll('.eng')[0].addEventListener('click', switchToEng);
+document.querySelectorAll('.ru')[0].addEventListener('click', switchToRu);
+
+function switchToRu(event) {
+  document.querySelector('.eng').classList.remove('active');
+  document.querySelector('.ru').classList.add('active');
+}
+
+function switchToEng(event) {
+  document.querySelector('.ru').classList.remove('active');
+  document.querySelector('.eng').classList.add('active');
+}
+
 
     console.log( 
     'Самооценка\n',  
