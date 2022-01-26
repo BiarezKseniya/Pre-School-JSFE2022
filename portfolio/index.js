@@ -15,6 +15,45 @@ function closeNav(event) {
 menu.addEventListener('click', toggleNav);
 nav.addEventListener('click', closeNav);
 
+const portfolioBtn = document.querySelector('.portfolio_btn');
+const portfolioImages = document.querySelectorAll('.portfolio_item');
+const portfolioBtns = document.querySelector('.season_buttons');
+
+portfolioBtns.addEventListener('click', changeImage);
+
+function changeImage(event) {
+  if(event.target.classList.contains('portfolio_btn')) {
+      const season = event.target.dataset.season;      
+      portfolioImages.forEach((img, index) => img.src = `./assets/img/${season}/${index + 1}.jpg`);
+  }
+}
+
+const seasons = ['winter', 'spring', 'summer', 'autumn'];
+
+function preloadImages() {
+  seasons.forEach((element) => {
+  for(let i = 1; i <= 6; i++) {
+    const img = new Image();
+    img.src = `./assets/img/${element}/${i}.jpg`;
+  }
+});
+}
+
+preloadImages();
+
+const allPortfolioBtns = document.querySelectorAll('.portfolio_btn');
+
+function changeClassActive (event) {
+  if(event.target.classList.contains('portfolio_btn')) {
+  allPortfolioBtns.forEach((element) => {
+  element.classList.remove('active');
+  });
+  event.target.classList.add('active');
+ };
+};
+
+portfolioBtns.addEventListener('click', changeClassActive);
+
     console.log( 
     'Самооценка\n',  
     '[1] Вёрстка соответствует макету. Ширина экрана 768px +48\n',

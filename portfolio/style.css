@@ -266,7 +266,7 @@ body {
     color: var(--font_color);
   }
 
-  .transparent_button:focus {
+  .active {
     color: black;
     background-color: var(--hover_color);
     outline: none;
