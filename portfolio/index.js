@@ -85,6 +85,20 @@ function switchToEng(event) {
   document.querySelector('.eng').classList.add('active');
 }
 
+document.querySelectorAll('.light')[0].addEventListener('click', switchToLight);
+
+// function switchToLight(event) {
+// document.documentElement.style.setProperty('--back_color', '#fff');
+// document.documentElement.style.setProperty('--font_color', '#000');
+// document.documentElement.style.setProperty('--hover_color', '#000');
+// }
+
+function switchToLight(event) {
+const themeChange = document.querySelectorAll('.theme');
+themeChange.forEach((element) =>{
+  element.classList.toggle('white');
+});
+}
 
     console.log( 
     'Самооценка\n',  
