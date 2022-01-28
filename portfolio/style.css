@@ -148,7 +148,6 @@ body {
   }
 
   h1 {
-    width: 500px;
     height: 120px;
     margin: 0;
     font: var(--font1); 
@@ -197,22 +196,13 @@ body {
     background-image: linear-gradient(to top, #000 39px, #bdae82 39px, #bdae82 41px, #000 41px);
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+    
   }
 
-  #skills .section-title{
-    width: 152px;
-  }
-
-  #portfolio .section-title{
-    width: 220px;
-  }
-
-  #video .section-title{
-    width: 154px;
-  }
-
-  #price .section-title{
-    width: 142px;
+  .section-title{
+    display: inline-block;
+    padding: 0 20px;
   }
 
   #contacts .section-title{
@@ -654,7 +644,6 @@ body {
     }
 
     h1 {
-      width: 165px;
       height: 64px; 
       line-height: 64px;
       font-weight: 400;
@@ -669,22 +658,6 @@ body {
 
     .section-title {
       font-size: 32px;
-    }
-
-    #skills .section-title{
-      width: 131px;
-    }
-  
-    #portfolio .section-title{
-      width: 185px;
-    }
-  
-    #video .section-title{
-      width: 131px;
-    }
-  
-    #price .section-title{
-      width: 122px;
     }
 
     .section {

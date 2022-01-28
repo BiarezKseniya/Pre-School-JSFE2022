@@ -20,6 +20,9 @@ const i18Obj = {
       'spring': 'Spring',
       'summer': 'Summer',
       'autumn': 'Autumn',
+      'pack-1': 'Standard',
+      'pack-2': 'Premium',
+      'pack-3': 'Gold',
       'price-description-1-span-1': 'One location',
       'price-description-1-span-2': '120 photos in color',
       'price-description-1-span-3': '12 photos in retouch',
@@ -37,7 +40,10 @@ const i18Obj = {
       'price-description-3-span-5': 'Make up, visage, hairstyle',
       'order': 'Order shooting',
       'contact-me': 'Contact me',
-      'send-message': 'Send message'
+      'send-message': 'Send message',
+      'e-mail': 'E-mail',
+      'phone': 'Phone',
+      'message': 'Message'
     },
     'ru': {
       'skills': 'Навыки',
@@ -60,6 +66,9 @@ const i18Obj = {
       'spring': 'Весна',
       'summer': 'Лето',
       'autumn': 'Осень',
+      'pack-1': 'Стандарт',
+      'pack-2': 'Премиум',
+      'pack-3': 'Люкс',
       'price-description-1-span-1': 'Одна локация',
       'price-description-1-span-2': '120 цветных фото',
       'price-description-1-span-3': '12 отретушированных фото',
@@ -78,7 +87,9 @@ const i18Obj = {
       'order': 'Заказать съемку',
       'contact-me': 'Свяжитесь со мной',
       'send-message': 'Отправить',
-      'e-mail': 'Почта'
+      'e-mail': 'Почта',
+      'phone': 'Телефон',
+      'message': 'Сообщение'
     }
   }
   export default i18Obj;
