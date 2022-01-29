@@ -1,5 +1,8 @@
 import i18Obj from './translate.js';
 
+let lang = 'eng';
+let theme = 'dark';
+
 const menu = document.querySelector('.menu');
 const nav = document.querySelector('.nav');
 
@@ -78,14 +81,16 @@ document.querySelectorAll('.ru')[0].addEventListener('click', switchToRu);
 function switchToRu(event) {
   document.querySelector('.eng').classList.remove('active');
   document.querySelector('.ru').classList.add('active');
+  lang = 'ru';
 }
 
 function switchToEng(event) {
   document.querySelector('.ru').classList.remove('active');
   document.querySelector('.eng').classList.add('active');
+  lang = 'en';
 }
 
-document.querySelectorAll('.light')[0].addEventListener('click', switchToLight);
+document.querySelectorAll('.light')[0].addEventListener('click', switchTheme);
 
 // function switchToLight(event) {
 // document.documentElement.style.setProperty('--back_color', '#fff');
@@ -93,12 +98,42 @@ document.querySelectorAll('.light')[0].addEventListener('click', switchToLight);
 // document.documentElement.style.setProperty('--hover_color', '#000');
 // }
 
-function switchToLight(event) {
+function switchTheme(event) {
 const themeChange = document.querySelectorAll('.theme');
 themeChange.forEach((element) =>{
   element.classList.toggle('white');
 });
+if (theme === 'dark') {
+  theme = 'light';
+} else {
+  theme = 'dark';
 }
+}
+
+function setLocalStorage() {
+  localStorage.setItem('lang', lang);
+  localStorage.setItem('theme', theme);
+}
+window.addEventListener('beforeunload', setLocalStorage)
+
+function getLocalStorage() {
+  if(localStorage.getItem('lang')) {
+    const lang = localStorage.getItem('lang');
+    getTranslate(lang);
+    if (lang === 'ru') {
+      switchToRu();
+    }
+  }
+  if(localStorage.getItem('theme')) {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'light') {
+      switchTheme();
+    }
+  }
+}
+window.addEventListener('load', getLocalStorage)
+
+
 
     console.log( 
     'Самооценка\n',  
