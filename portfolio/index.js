@@ -1,6 +1,6 @@
 import i18Obj from './translate.js';
 
-let lang = 'eng';
+let lang = 'en';
 let theme = 'dark';
 
 const menu = document.querySelector('.menu');
