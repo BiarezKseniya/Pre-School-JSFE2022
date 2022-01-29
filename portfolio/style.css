@@ -98,7 +98,6 @@ body {
   }
    
   .nav-list {
-    width: 500px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -635,14 +634,14 @@ body {
     }
 
     .lang_switch {
-      width: 82px;
+      width: 70px;
     }
 
     .menu {
       display: flex;
       flex-direction: column;
       gap: 9px;
-      padding: 11px 4px 11px 20px;
+      padding: 11px 4px 11px 30px;
       order: 3;
       z-index: 15;
     }
