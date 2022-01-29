@@ -8,7 +8,11 @@
   --white_back_color: white;
 }
 
-.white {
+body.white {
+  background-image: linear-gradient(to bottom, #000 910px, #fff 911px 4682px, #000 850px);
+}
+
+.white.section.theme {
   background-color: var(--white_back_color);
   color: var(--white_font_color);
 }
@@ -568,6 +572,10 @@ body {
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
+  }
+
+  footer {
+    background-color: var(--back_color);
   }
 
   footer a {
