@@ -127,6 +127,7 @@ body {
   .logo:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
       contrast(87%);
+    transform: scale(1.1);
   }
   
   .lang_switch{
@@ -165,6 +166,7 @@ body {
     font-weight: 700;
     align-items: center;
     padding: 0;
+    transition: 0.3s;
   }
 
   .lang_switch button:focus {
@@ -174,6 +176,7 @@ body {
   .lang_switch button:hover {
     cursor: pointer;
     color: var(--hover_color);
+    transform: scale(1.1);
   }
 
   .lang_switch .active { 
@@ -197,6 +200,7 @@ body {
   .light:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
       contrast(87%);
+    transform: scale(1.1);  
   }
 
   .light:focus {
@@ -242,10 +246,20 @@ body {
 
   .gold_button:hover {
     color: var(--font_color);
+    box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+    transform: scale(1.1);
   }
 
   .gold_button:focus {
     outline: none;
+  }
+
+  .gold_button:focus{
+    animation: pulse 1s;
+  }
+
+  @keyframes pulse{
+    0%{box-shadow: 0 0 0 0 #BDAE82}
   }
 
   .section-title {
@@ -353,16 +367,21 @@ body {
     color: var(--hover_color);
     width: 220px;
     height: 55px;
-    transition: 0.3s;
+    transition: 0.5s;
   }
 
   .transparent_button:hover {
     color: var(--font_color);
+    box-shadow: inset 220px 0 0 0 var(--hover_color);
   }
 
   .active {
     color: black;
     background-color: var(--hover_color);
+    outline: none;
+  }
+
+  .transparent_button:focus {
     outline: none;
   }
 
@@ -392,24 +411,27 @@ body {
     background-color: transparent;
     background-size: contain;
     background-repeat: no-repeat;  
-    transition: 0.3s;
+    transition: 0.5s;
     position: absolute;
     height: 130px;
     width: 130px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
     cursor: pointer;
+    box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+    border-radius: 500px;
   }
   
   .play:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
       contrast(87%);
+    transform: translate(-50%, -50%) scale(1.1);
   }
 
   .play:focus{
     outline: none;
+    animation: pulse 1s;
   }
 
   .pricelist {
@@ -596,6 +618,7 @@ body {
   .social-list_item:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
       contrast(87%);
+    transform: scale(1.1);
   }
 
   @media screen and (max-width: 768px) {

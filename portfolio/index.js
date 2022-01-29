@@ -92,22 +92,16 @@ function switchToEng(event) {
 
 document.querySelectorAll('.light')[0].addEventListener('click', switchTheme);
 
-// function switchToLight(event) {
-// document.documentElement.style.setProperty('--back_color', '#fff');
-// document.documentElement.style.setProperty('--font_color', '#000');
-// document.documentElement.style.setProperty('--hover_color', '#000');
-// }
-
 function switchTheme(event) {
 const themeChange = document.querySelectorAll('.theme');
 themeChange.forEach((element) =>{
   element.classList.toggle('white');
 });
-if (theme === 'dark') {
-  theme = 'light';
-} else {
-  theme = 'dark';
-}
+  if (theme === 'dark') {
+    theme = 'light';
+  } else {
+    theme = 'dark';
+  }
 }
 
 function setLocalStorage() {
