@@ -394,10 +394,7 @@ body {
   .video-player {
     margin-top: 60px; 
     border: solid 1px var(--hover_color);
-  }
-
-  .video-container {
-    position: relative; 
+    position: relative;
   }
 
   #video {
@@ -406,18 +403,6 @@ body {
   
   .video {
     width: 100%;
-  }
-
-  .progress {
-    display: flex;
-    width: 100%;
-    height: 15px;
-  }
-
-  .progress-filled {
-    background-color: var(--hover_color);
-    flex: 0;
-    flex-basis: 0%;
   }
 
   .play-slider {
@@ -457,13 +442,15 @@ body {
     background-color: transparent;
     border: none;
     height: 36px;
-    width: 40px;
+    width: 36px;
     box-sizing: content-box;
     background-repeat: no-repeat;
     background-position: center;
     background-image: url('./assets/svg/play.svg');
     padding: 0;
     transition: 0.3s;
+    margin-right: 20px;
+    background-size: contain;
   }
 
   .play-control:focus {
@@ -507,11 +494,23 @@ body {
     cursor: pointer;  
   }
 
-  .poster{
+  .poster {
     background-image: url(./assets/img/video-player.jpg);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    transition: 1s;
   }
 
   .play {
+    z-index: 3;
     background-image: url('./assets/svg/Play_hover.svg');
     border: 0;
     background-color: transparent;
@@ -550,7 +549,12 @@ body {
     padding: 12px 20px;
     height: 60px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+  }
+
+  .white .video-player {
+    background-color: #000;
+    border: solid 1px var(--hover_color);
   }
 
   .pricelist {
@@ -968,6 +972,47 @@ body {
     .play {     
       height: 65px;
       width: 65px;
+    }
+
+    .player-controls {
+      flex-wrap: wrap;
+      position: relative;
+      padding: 12px 20px 0;
+    }
+
+    .play-control {
+      order: 2;
+      width: 32px;
+      height: 32px;
+    }
+
+    .volume {
+      order: 4;
+      width: calc(100% - 150px);
+      height: 8px;
+    }
+
+    .sound {
+      order: 3;
+      margin-left: 0;
+    }
+
+    .playback {
+      display: none;
+    }
+
+    .pb {
+      display: none;
+    }
+
+    .progress {
+      width: 100%;
+      order: 1;
+      margin: 0;
+      position: absolute;
+      top: -5px;
+      left: 0;
+      height: 8px;
     }
 
     .contacts_container {

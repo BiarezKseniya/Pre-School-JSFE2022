@@ -54,8 +54,8 @@ function changeClassActive (event) {
       element.classList.remove('active');
     });
     event.target.classList.add('active');
-  };
-};
+  }
+}
 
 portfolioBtns.addEventListener('click', changeClassActive);
 
@@ -64,12 +64,12 @@ function getTranslate(lang) {
   datasetElements.forEach((element) => {
     if (element.placeholder) {
       element.placeholder = i18Obj[lang][element.getAttribute('data-i18')];
-      element.textContent = ''
+      element.textContent = '';
     } else {
       element.textContent = i18Obj[lang][element.getAttribute('data-i18')];
     }
   });
-};
+}
 
 
 document.querySelectorAll('.eng')[0].addEventListener('click', getTranslate.bind(this, 'en'));
@@ -108,7 +108,7 @@ function setLocalStorage() {
   localStorage.setItem('lang', lang);
   localStorage.setItem('theme', theme);
 }
-window.addEventListener('beforeunload', setLocalStorage)
+window.addEventListener('beforeunload', setLocalStorage);
 
 function getLocalStorage() {
   if(localStorage.getItem('lang')) {
@@ -125,19 +125,18 @@ function getLocalStorage() {
     }
   }
 }
-window.addEventListener('load', getLocalStorage)
+window.addEventListener('load', getLocalStorage);
 
 const player = document.querySelector('.video-player');
 const video = document.querySelector('.video');
 const progress = document.querySelector('.progress');
-//const progressFilled = document.querySelector('.progress-filled');
 const playBtn = document.querySelector('.play');
 const playControl = document.querySelector('.play-control');
-//const ranges = document.querySelectorAll('.play-slider');
 const volume = document.querySelector('.volume');
 const playback = document.querySelector('.playback');
-const sound = document.querySelector('.sound')
-const pbText = document.querySelector('.pb')
+const sound = document.querySelector('.sound');
+const pbText = document.querySelector('.pb');
+const poster = document.querySelector('.poster');
 let mousedown = false;
 
 playBtn.addEventListener('click', togglePlay);
@@ -150,14 +149,13 @@ volume.addEventListener('change', updateRange);
 volume.addEventListener('mousemove', updateRange);
 playback.addEventListener('change', updateRange);
 playback.addEventListener('mousemove', updateRange);
-document.querySelector('.volume').addEventListener('input', changeColorVolume);
-document.querySelector('.playback').addEventListener('input', changeColorPlayback);
-document.querySelector('.progress').addEventListener('input', changeColorProgress);
-progress.addEventListener('click', scrub);
-progress.addEventListener('mousemove', () => mousedown && scrub());
-progress.addEventListener('mousedown', () => mousedown = true);
-progress.addEventListener('mouseup', () => mousedown = false);
+volume.addEventListener('input', changeColorVolume);
+playback.addEventListener('input', changeColorPlayback);
+progress.addEventListener('input', changeColorProgress);
+progress.addEventListener('change', scrub);
 sound.addEventListener('click', handleVolume);
+poster.addEventListener('click', removePoster);
+
 
 
 
@@ -167,6 +165,8 @@ function togglePlay() {
   } else {
     video.pause();
   }
+  lastProgress = progress.value;
+  poster.style.display = 'none';
 }
 
 function updateBtn() {
@@ -185,10 +185,12 @@ function updateBtn() {
   function changeColorVolume() {
     const value = this.value;
     this.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${value*100}%, #c8c8c8 ${value*100}%, #c8c8c8 100%)`;
-    if (value==0) {
+    if (value == 0) {
       sound.style.backgroundImage = "url('./assets/svg/mute.svg')";
+      video.muted = true;
     } else {
       sound.style.backgroundImage = "url('./assets/svg/volume.svg')";
+      video.muted = false;
     }
   }
 
@@ -207,22 +209,37 @@ function updateBtn() {
     if (video.muted) {
       video.muted = false;
       sound.style.backgroundImage = "url('./assets/svg/volume.svg')";
+      if (volume.value == 0) {
+        volume.value = 0.4;
+        updateRange.call(volume);
+      }
     } else {
       video.muted = true;
       sound.style.backgroundImage = "url('./assets/svg/mute.svg')";
     }
   }
 
+  let lastProgress;
+
   function handleProgress() {
     const percent = (video.currentTime / video.duration) * 100;
-    progress.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, #c8c8c8 ${percent}%, #c8c8c8 100%)`;
-    progress.value = percent;
+    if (progress.value === lastProgress) {
+      progress.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, #c8c8c8 ${percent}%, #c8c8c8 100%)`;
+      progress.value = percent;
+      lastProgress = progress.value;
+    }
   }
 
   function scrub() {
     const scrubTime = progress.value * video.duration / 100;
     video.currentTime = scrubTime;
     video.play();
+    lastProgress = progress.value; 
+  }
+
+  function removePoster() {
+    poster.style.display = 'none';
+    togglePlay();
   }
 
     console.log( 
