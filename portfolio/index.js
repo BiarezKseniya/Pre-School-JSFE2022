@@ -127,7 +127,103 @@ function getLocalStorage() {
 }
 window.addEventListener('load', getLocalStorage)
 
+const player = document.querySelector('.video-player');
+const video = document.querySelector('.video');
+const progress = document.querySelector('.progress');
+//const progressFilled = document.querySelector('.progress-filled');
+const playBtn = document.querySelector('.play');
+const playControl = document.querySelector('.play-control');
+//const ranges = document.querySelectorAll('.play-slider');
+const volume = document.querySelector('.volume');
+const playback = document.querySelector('.playback');
+const sound = document.querySelector('.sound')
+const pbText = document.querySelector('.pb')
+let mousedown = false;
 
+playBtn.addEventListener('click', togglePlay);
+playControl.addEventListener('click', togglePlay);
+video.addEventListener('click', togglePlay);
+video.addEventListener('play', updateBtn);
+video.addEventListener('pause', updateBtn);
+video.addEventListener('timeupdate', handleProgress);
+volume.addEventListener('change', updateRange);
+volume.addEventListener('mousemove', updateRange);
+playback.addEventListener('change', updateRange);
+playback.addEventListener('mousemove', updateRange);
+document.querySelector('.volume').addEventListener('input', changeColorVolume);
+document.querySelector('.playback').addEventListener('input', changeColorPlayback);
+document.querySelector('.progress').addEventListener('input', changeColorProgress);
+progress.addEventListener('click', scrub);
+progress.addEventListener('mousemove', () => mousedown && scrub());
+progress.addEventListener('mousedown', () => mousedown = true);
+progress.addEventListener('mouseup', () => mousedown = false);
+sound.addEventListener('click', handleVolume);
+
+
+
+function togglePlay() {
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+}
+
+function updateBtn() {
+  playBtn.classList.toggle('none');   
+  if (this.paused) { 
+    playControl.style.backgroundImage = "url('./assets/svg/play.svg')"; 
+  } else {
+    playControl.style.backgroundImage = "url('./assets/svg/pause.svg')"; 
+  }
+}
+
+  function updateRange() {
+    video[this.name] = this.value;
+  }
+
+  function changeColorVolume() {
+    const value = this.value;
+    this.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${value*100}%, #c8c8c8 ${value*100}%, #c8c8c8 100%)`;
+    if (value==0) {
+      sound.style.backgroundImage = "url('./assets/svg/mute.svg')";
+    } else {
+      sound.style.backgroundImage = "url('./assets/svg/volume.svg')";
+    }
+  }
+
+  function changeColorPlayback() {
+    const value = this.value;
+    this.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${(value-0.5)/1.5*100}%, #c8c8c8 ${(value-0.5)/1.5*100}%, #c8c8c8 100%)`;
+    pbText.textContent = `×${value}`;
+  }
+
+  function changeColorProgress() {
+    const value = this.value;
+    this.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${value}%, #c8c8c8 ${value}%, #c8c8c8 100%)`;
+  }
+
+  function handleVolume() {
+    if (video.muted) {
+      video.muted = false;
+      sound.style.backgroundImage = "url('./assets/svg/volume.svg')";
+    } else {
+      video.muted = true;
+      sound.style.backgroundImage = "url('./assets/svg/mute.svg')";
+    }
+  }
+
+  function handleProgress() {
+    const percent = (video.currentTime / video.duration) * 100;
+    progress.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, #c8c8c8 ${percent}%, #c8c8c8 100%)`;
+    progress.value = percent;
+  }
+
+  function scrub() {
+    const scrubTime = progress.value * video.duration / 100;
+    video.currentTime = scrubTime;
+    video.play();
+  }
 
     console.log( 
     'Самооценка\n', 

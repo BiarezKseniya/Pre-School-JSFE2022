@@ -392,8 +392,12 @@ body {
   }
 
   .video-player {
-    margin-top: 60px;
-    position: relative;  
+    margin-top: 60px; 
+    border: solid 1px var(--hover_color);
+  }
+
+  .video-container {
+    position: relative; 
   }
 
   #video {
@@ -402,6 +406,109 @@ body {
   
   .video {
     width: 100%;
+  }
+
+  .progress {
+    display: flex;
+    width: 100%;
+    height: 15px;
+  }
+
+  .progress-filled {
+    background-color: var(--hover_color);
+    flex: 0;
+    flex-basis: 0%;
+  }
+
+  .play-slider {
+    outline: none;
+    width: calc(20% - 40px);
+    height: 10px;
+    -webkit-appearance: none;
+  }
+
+  .volume {
+    background: linear-gradient(to right, #bdae82 0%, #bdae82 40%, #c8c8c8 0%, #c8c8c8 100%);
+    margin-left: 20px;
+  }
+  
+  .playback {
+    background: linear-gradient(to right, #bdae82 0%, #bdae82 calc(100%/3), #c8c8c8 0%, #c8c8c8 100%);
+    margin-left: 20px;
+  }
+
+  .progress {
+    background: linear-gradient(to right, #bdae82 0%, #bdae82 0%, #c8c8c8 0%, #c8c8c8 100%);;
+    width: calc(60% - 160px);
+  }
+
+  .play-slider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    cursor: ew-resize;
+    background: var(--font_color);
+  }
+    
+
+  .play-control {
+    display: block;
+    background-color: transparent;
+    border: none;
+    height: 36px;
+    width: 40px;
+    box-sizing: content-box;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('./assets/svg/play.svg');
+    padding: 0;
+    transition: 0.3s;
+  }
+
+  .play-control:focus {
+    outline: none;
+  }
+  .play-control:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+      contrast(87%);
+    cursor: pointer;  
+  }
+
+  .pb {
+    color: var(--font_color);
+    font: var(--font2);
+    margin-left: 20px;
+    width: 40px;
+  }
+
+  .sound {  
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    height: 36px;
+    width: 40px;
+    box-sizing: content-box;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0;   
+    background-image: url('./assets/svg/volume.svg');
+    margin-left: auto;
+    transition: 0.3s;
+  }
+
+  .sound:focus {
+    outline: none;
+  }
+
+  .sound:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+      contrast(87%);
+    cursor: pointer;  
+  }
+
+  .poster{
+    background-image: url(./assets/img/video-player.jpg);
   }
 
   .play {
@@ -422,15 +529,28 @@ body {
     border-radius: 500px;
   }
   
+  .play.none {
+    display: none;
+  }
+  
   .play:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
       contrast(87%);
     transform: translate(-50%, -50%) scale(1.1);
   }
 
-  .play:focus{
+  .play:focus {
     outline: none;
     animation: pulse 1s;
+  }
+
+  .player-controls {
+    display: flex;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .pricelist {
