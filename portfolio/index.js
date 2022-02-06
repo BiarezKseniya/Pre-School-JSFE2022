@@ -166,7 +166,10 @@ function togglePlay() {
     video.pause();
   }
   lastProgress = progress.value;
-  poster.style.display = 'none';
+  poster.style.opacity = '0';
+  setTimeout(function() {
+    poster.style.display = 'none';
+  }, 1000);
 }
 
 function updateBtn() {
@@ -238,7 +241,10 @@ function updateBtn() {
   }
 
   function removePoster() {
-    poster.style.display = 'none';
+    poster.style.opacity = '0';
+    setTimeout(function() {
+      poster.style.display = 'none';
+    }, 1000);
     togglePlay();
   }
 

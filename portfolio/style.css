@@ -507,6 +507,7 @@ body {
     background-position: center center;
     cursor: pointer;
     transition: 1s;
+    opacity: 1;
   }
 
   .play {
