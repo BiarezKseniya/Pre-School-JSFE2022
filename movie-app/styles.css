@@ -1,12 +1,20 @@
 :root {
     --bg-color: #22254b;
     --add-color: #373b69;
-    --font: Arial, sans-serif;
+    --font: 36px Arial, sans-serif;
     --font-color: white;
 }
 
-.content {
-    max-width: 1440px;
+body {
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    overflow-x: hidden;
+    height: 100%;
 }
 
 header {
@@ -24,12 +32,18 @@ header {
     background-color: transparent;
     border-radius: 50px;
     padding: 0.5rem;
-    font-size: 18px;
+    font-size: 21px;
     border: solid 2px var(--bg-color);
+    color: var(--font-color);
+}
+
+.search::-webkit-search-cancel-button{
+    cursor: pointer;
 }
 
 .search:focus {
     outline: none;
+    background-color: var(--bg-color);
 }
 
 .search::placeholder {
@@ -39,27 +53,106 @@ header {
 body {
     background: var(--bg-color);
     margin: 0;
+    color: var(--font-color);
+    font: var(--font);
 }
 
 .main {
     padding: 4rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap: 50px;
+}
+
+.item {
+    background-color: var(--add-color);
+    width: 300px;
+    font-size: 21px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.item:hover .info {
+    transform: translateY(0);
+}
+
+.item h3 {
+    padding: 20px;
+    margin: 0;
+}
+
+.footer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item span {
+    display: block;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px 0px rgba(34, 60, 80, 0.2);
+    background-color: var(--bg-color);
+    padding: 10px;
+    margin: 20px 20px 20px 0;
+    align-self: baseline;
+    font-weight: 700;
+    
+}
+
+.rating-red {
+    color: crimson;
+}
+
+.rating-green {
+    color: mediumaquamarine;
+}
+
+.rating-orange {
+    color: #ffcd01;
+}
+
+.info {
+    background-color: white;
+    color: black;
+    font-size: 21px;
+    padding: 20px 20px;
+    line-height: 1.5;
+    transform: translateY(100%);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    transition: 0.5s ease-out;
 }
 
 footer {
-    position: absolute;
-    padding: 4rem 50px;    
-    bottom: 0;
-    left: 0;
+    padding: 2.5rem 50px;    
     width: 100%;
     box-sizing: border-box;
     background: var(--add-color);
 }
 
+footer a {
+    height: 64px;
+}
+
+footer p {
+    color: black;
+    font-size: 28px;
+}
+
 .footer-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .footer-img {
