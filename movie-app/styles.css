@@ -2,6 +2,7 @@
     --bg-color: #22254b;
     --add-color: #373b69;
     --font: 36px Arial, sans-serif;
+    --small-font: 18px Arial, sans-serif;
     --font-color: white;
 }
 
@@ -49,6 +50,61 @@ header {
 .search::placeholder {
     color: #6166A5;
 }
+
+.lang-switch{
+    width: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .en {
+    width: 25px;
+    text-align: left;
+  }
+
+  .ru {
+    width: 22px;
+    text-align: right;
+  }
+
+  .lang-switch {
+    padding-left: 20px;
+    width: auto;
+  }
+
+  .lang-switch span{
+    display: block;
+    font-size: 18px;
+  }
+
+  .lang-switch button {
+    width: auto;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    align-items: center;
+    transition: 0.3s;
+    font-size: 18px;
+  }
+
+  .lang-switch button:focus {
+    outline: none;
+  }
+
+  .lang-switch button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
+  .lang-switch .active { 
+    border-radius: 10px;
+    background-color: #22254b;
+    font-weight: 700;
+  }
+
 
 body {
     background: var(--bg-color);
@@ -161,6 +217,26 @@ footer p {
 }
 
 @media only screen and (max-width: 480px) {
+
+    body {
+        font: var(--small-font);
+    }
+
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .lang-switch {
+        order: 1;
+        margin-left: auto;
+    }
+
+    .search {
+        order: 2;
+        margin-left: auto;
+    }
+
     .item {
         width: 225px;
     }

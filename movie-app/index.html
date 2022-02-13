@@ -12,7 +12,12 @@
 <body>
     <div class="container">
         <header class="head">
-            <input class="search" type="search" id="id-search" placeholder="Search" autocomplete="off" autofocus="on">
+            <input class="search" type="search" id="id-search" placeholder="Search" autocomplete="off" autofocus="on" data-i18n="search">
+            <div class="lang-switch">
+                <button class="en active">en</button>
+                <span>/</span>
+                <button class="ru">ru</button>
+            </div>
         </header>
         <main id="id-main" class="main">
         </main>
@@ -26,7 +31,7 @@
             </div>
         </footer>
     </div>
-    <script src="./index.js"></script>
+    <script type="module" src="./index.js"></script>
 </body>
 
 </html>

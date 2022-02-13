@@ -1,4 +1,7 @@
+import i18nObj from './translate.js';
+
 let searchString = '';
+let lang = 'en';
 
 
 document.getElementById("id-search").addEventListener("keyup", (event) => {
@@ -7,6 +10,11 @@ document.getElementById("id-search").addEventListener("keyup", (event) => {
         getData();
     }
 });
+
+const ruBtn = document.querySelector('.ru');
+ruBtn.addEventListener('click', setLanguage.bind(this, 'ru'));
+const enBtn = document.querySelector('.en');
+enBtn.addEventListener('click', setLanguage.bind(this, 'en'));
 
 
 function getApiUrl(oSearch) {
@@ -27,10 +35,11 @@ function getApiUrl(oSearch) {
 
 function getData() {
 
-    fillMain('Loading...');
+    fillMain(i18nObj[lang].loading);
 
     const oSearch = {
-        query: searchString
+        query: searchString,
+        language: lang
     }
 
     const sApiUrl = getApiUrl(oSearch);
@@ -51,7 +60,7 @@ function getData() {
         })
         .catch( (error) => {
             console.log(error);
-            fillMain('Connection Error');
+            fillMain(i18nObj[lang].noConection);
         });
 }
 
@@ -65,7 +74,7 @@ function processData(oData) {
             createBlock(element);
         });
     } else {
-        fillMain('No data found');
+        fillMain(i18nObj[lang].noData);
     }
 
 }
@@ -121,6 +130,36 @@ function fillMain(content) {
     main.innerHTML = content;
 }
 
+function setLanguage(newLang) {
+    if (lang !== newLang ) {
+        lang = newLang;
+
+        if (lang === 'en') {
+            ruBtn.classList.remove('active');
+            enBtn.classList.add('active');
+        } else {
+            enBtn.classList.remove('active');
+            ruBtn.classList.add('active');
+        }
+
+        getTranslate(lang);
+
+        getData();
+    }
+}
+
+function getTranslate(newLang) {
+    const datasetElements = document.querySelectorAll('[data-i18n]');  
+    datasetElements.forEach((element) => {
+      if (element.placeholder) {
+        element.placeholder = i18nObj[newLang][element.getAttribute('data-i18n')];
+        element.textContent = '';
+      } else {
+        element.textContent = i18nObj[newLang][element.getAttribute('data-i18n')];
+      }
+    });
+  }
+
+
 
 getData();
-
