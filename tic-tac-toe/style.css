@@ -1,61 +1,175 @@
 :root{
 --game-font: 70px Comic Sans MS, sans-serif;
+--history-font: 21px Comic Sans MS, sans-serif;
+}
+
+body {
+    font: var(--history-font);
+    background-image: url(./assets/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+h1 {
+    text-align: center;
+    padding: 2.5rem;
 }
 
 main {
     height: 100%;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    flex-direction: column;
 }
 
-td {
-    border: 5px solid #333;
+.game {
+    font: var(--game-font);
+    cursor: pointer;
+}
+
+.game td {
     height: 100px;
     width: 100px;
+}
+
+.game-field {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 0 auto;
+    position: relative;
+}
+
+.table td {
+    border: 5px solid #333;
     text-align: center;
     vertical-align: middle;
-    cursor: pointer;
-    font: var(--game-font);
     transition: 1s ease-out;
 }
 
-table {
+.table {
     border-collapse: collapse;
+    margin: 4rem;
 }
 
-table tr:first-child td {
+.table tr:first-child td {
     border-top: 0;
 }
 
-table tr:last-child td {
+.table tr:last-child td {
     border-bottom: 0;
 }
 
-table tr td:last-child {
+.table tr td:last-child {
     border-right: 0;
 }
 
-table tr td:first-child {
+.table tr td:first-child {
     border-left: 0;
+}
+
+.history {
+    font: var(--history-font);
+}
+
+.history td {
+    padding: 10px;
 }
 
 .endgame {
     display: none;
     width: 200px;
     height: 150px;
-    background-color: rgba(255, 228, 196, 0.8);
-    text-align: center;
+    background-color: rgb(255, 228, 196);
     border-radius: 10px;
     color:black;
-    font-size: 2em;
-
+    font: var(--history-font);
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
 }
 
-.text {
-    display: block;
-    height: 100%;
+.restart {
+    height: 40px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
+    font: var(--history-font);
+    font-size: 18px;
+}
+
+footer {
+    padding: 2.5rem 50px;    
     width: 100%;
+    box-sizing: border-box;
+    background: var(--add-color);
 }
+
+footer a {
+    height: 64px;
+}
+
+footer p {
+    color: black;
+    font-size: 28px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-img {
+    height: 64px;
+}
+
+@media only screen and (max-width: 970px) {
+
+main {
+    flex-direction: column;
+    align-items: center;
+}
+}
+
+@media only screen and (max-width: 600px) {
+
+    h1 {
+        padding: 1rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .game {
+        margin: 0;
+        font-size: 48px;
+    }
+
+    .game td {
+        width: 70px;
+        height: 70px;
+    }
+
+    .footer {
+        padding: 1rem 30px;
+    }
+
+    .table {
+        padding: 1rem;
+    }
+}    
