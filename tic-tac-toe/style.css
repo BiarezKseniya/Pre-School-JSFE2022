@@ -80,6 +80,28 @@ main {
     padding: 10px;
 }
 
+[data-name] {
+    position: relative;
+}
+
+[data-name]::after {
+    content: attr(data-name);
+    opacity: 0;
+    transition: 1s;
+    position: absolute;
+    background-color: rgb(255, 228, 196);
+    top: -75px;
+    right: 0;
+    left: 0;
+    padding: 10px;
+    pointer-events: none; 
+    border-radius: 10px;
+}
+
+[data-name]:hover::after {
+    opacity: 1;
+  }
+
 .endgame {
     display: none;
     width: 200px;

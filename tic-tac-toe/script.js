@@ -16,6 +16,7 @@ let gameEnd = null;
 let history = [];
 let bestScore = 0;
 let currentScore = 0;
+let steps = 0;
 
 
 
@@ -37,6 +38,7 @@ window.addEventListener('load', readStorage);
 startGame();
 
 function startGame() {
+    steps = 0;
     gameEnd = null;
     document.querySelector('.endgame').style.display = 'none';
     origBoard = Array.from(Array(9).keys());
@@ -54,6 +56,7 @@ function startGame() {
 function turnClick(square) {
     if (typeof origBoard[square.target.id] == 'number' && currTurn === huPlayer) {
         turn(square.target.id, huPlayer);
+        steps++;
         setTimeout(() => {
             if (!gameEnd && !checkTie()) turn(bestSpot(), aiPlayer);
         }, 500);
@@ -111,7 +114,7 @@ function gameOver(gameEnd) {
         cells[i].removeEventListener('click', turnClick, false);
     }
 
-    declareWinner(gameEnd.player == huPlayer ? 'You win!' : 'You lose!');
+    declareWinner(gameEnd.player == huPlayer ? 'You win! Steps:' + steps  : 'You lose! Steps:' + steps);
 }
 
 function declareWinner(who) {
@@ -206,7 +209,7 @@ function addHistory(winner, winIndex) {
     const frame = {
         time: sTime,
         winner: winner,
-        winComb: winCombos[winIndex] ? winCombos[winIndex] : ""
+        winSteps: winCombos[winIndex] ? "Steps: " + steps : ""
     };
 
     history.unshift(frame);
@@ -252,6 +255,8 @@ function drawHistory() {
     let scoreRow = document.createElement("tr");
     let cell = document.createElement("td");
     cell.setAttribute('colspan', 3);
+    cell.setAttribute('data-name', 'Score is the number of wins in a row');
+    cell.classList.add('hint');
     cell.innerHTML = "Current Score: " + currentScore;
     scoreRow.appendChild(cell);
     historyContainer.appendChild(scoreRow);
@@ -281,11 +286,25 @@ function drawHistory() {
             winner.innerHTML = !frame.winner ? "Tie Game!" : frame.winner === huPlayer ? "Player won" : "AI won";
             row.appendChild(winner);
 
-            const winComb = document.createElement("td");
-            winComb.innerHTML = frame.winComb;
-            row.appendChild(winComb);
+            const winSteps = document.createElement("td");
+            winSteps.innerHTML = frame.winSteps;
+            row.appendChild(winSteps);
 
             historyContainer.appendChild(row);
         });
     }
 }
+
+console.log(
+'[1] Вёрстка +10\n',
+'- реализован интерфейс игры +5\n',
+'- в футере приложения есть ссылка на гитхаб автора приложения, год создания приложения, логотип курса со ссылкой на курс +5\n',
+'[2] При кликах по игровому полю по очереди отображаются крестики и нолики. Первая фигура всегда крестик +10\n',
+'[3] Игра завершается, когда три фигуры выстроились в ряд по вертикали, горизонтали или диагонали +10\n',
+'[4] По окончанию игры выводится её результат - выигравшая фигура и количество ходов от начала игры до её завершения +10\n',
+'[5] Результаты последних 10 игр сохраняются в local storage. Есть таблица рекордов, в которой отображаются результаты предыдущих 10 игр +10\n',
+'[6] Анимации или звуки, или настройки игры. Баллы начисляются за любой из перечисленных пунктов +10 - звук при написании крестиков / ноликов\n',
+'[7] Очень высокое качество оформления приложения и/или дополнительный не предусмотренный в задании функционал, улучшающий качество приложения +10\n',
+'- высокое качество оформления приложения предполагает собственное оригинальное оформление равное или отличающееся в лучшую сторону по сравнению с демо - добавлена таблицами с победами, всплывающая подсказка для Current Score, подсветка цветами различных ситуаций\n',
+'Итого: 60'
+    )
