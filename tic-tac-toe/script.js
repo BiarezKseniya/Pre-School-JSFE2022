@@ -272,7 +272,7 @@ function drawHistory() {
         const row = document.createElement("tr");
         const msg = document.createElement("td");
         msg.setAttribute('colspan', 3);
-        msg.innerHTML = "You never played before :)";
+        msg.innerHTML = "You've never played before :)";
         row.appendChild(msg);
         historyContainer.appendChild(row);
     } else {
