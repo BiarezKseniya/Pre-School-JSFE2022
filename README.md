@@ -1,2 +1,2 @@
 # biarezkseniya-JSFEPRESCHOOL
-Private repository for @biarezkseniya
+This repo contains tasks completed during JSFEPRESCHOOL training 2022.
