@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link type="Image/x-icon" href="./assets/favicon.png" rel="icon">
+    <title>Tic Tac Toe</title>
+</head>
+
+<body>
+    <header>
+        <h1>Tic-tac-toe</h1>
+    </header>
+    <main>
+        <div class="game-field">
+            <table class="table game">
+                <tr>
+                    <td class="cell" id="0"></td>
+                    <td class="cell" id="1"></td>
+                    <td class="cell" id="2"></td>
+                </tr>
+                <tr>
+                    <td class="cell" id="3"></td>
+                    <td class="cell" id="4"></td>
+                    <td class="cell" id="5"></td>
+                </tr>
+                <tr>
+                    <td class="cell" id="6"></td>
+                    <td class="cell" id="7"></td>
+                    <td class="cell" id="8"></td>
+                </tr>
+            </table>
+            <div class="endgame">
+                <div class="text"></div>
+                <button class="restart" onClick="startGame()">Replay</button>
+            </div>
+        </div>
+        <table id="history" class="table history">
+        </table>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <a class="footer-link" href="https://github.com/BiarezKseniya"><img class="footer-img"
+                    src="./assets/github.svg" alt="github-logo"></a>
+            <p>2021</p>
+            <a class="footer-link" href="https://rs.school/js-stage0/"><img class="footer-img"
+                    src="./assets/rs_school_js.svg" alt="RSS-logo"></a>
+        </div>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+
+</html>
